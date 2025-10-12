@@ -10,6 +10,12 @@ const nextConfig: NextConfig = {
     }));
     return config;
   },
+  async generateStaticParams() {
+    return [];
+  },
+  async generateBuildId() {
+    return 'tobakkhuset-build';
+  },
 };
 
 export default nextConfig;
