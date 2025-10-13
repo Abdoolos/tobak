@@ -248,19 +248,6 @@ export default function AdminProductsPage() {
                     </td>
                     <td style={{ padding: "15px" }}>
                       <div style={{ display: "flex", gap: "8px" }}>
-                        <a 
-                          href={`/admin/products/${product.id}/edit`}
-                          style={{
-                            padding: "6px 12px",
-                            background: "#007bff",
-                            color: "white",
-                            textDecoration: "none",
-                            borderRadius: "4px",
-                            fontSize: "12px"
-                          }}
-                        >
-                          تعديل
-                        </a>
                         <button 
                           onClick={() => deleteProduct(product.id, product.name)}
                           style={{

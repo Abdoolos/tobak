@@ -6,9 +6,9 @@ export const runtime = 'nodejs';
 
 export async function GET(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params;
+  const { id } = await context.params;
   try {
     const product = await prisma.product.findUnique({
       where: { id: parseInt(id) }
@@ -26,9 +26,9 @@ export async function GET(
 
 export async function PUT(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params;
+  const { id } = await context.params;
   try {
     const body = await request.json();
     const product = await prisma.product.update({
@@ -43,9 +43,9 @@ export async function PUT(
 
 export async function DELETE(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  context: { params: Promise<{ id: string }> }
 ) {
-  const { id } = await params;
+  const { id } = await context.params;
   try {
     await prisma.product.delete({
       where: { id: parseInt(id) }
