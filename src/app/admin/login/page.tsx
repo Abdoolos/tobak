@@ -105,19 +105,6 @@ export default function LoginPage() {
         </button>
       </form>
 
-      <div style={{ 
-        marginTop: "20px", 
-        padding: "20px", 
-        background: "#f8f9fa", 
-        borderRadius: "8px",
-        border: "1px solid #e9ecef"
-      }}>
-        <p style={{ margin: 0, fontSize: "14px", color: "#6c757d", textAlign: "center" }}>
-          <strong>Demo påloggingsdata:</strong><br />
-          E-post: admin@local<br />
-          Passord: admin123
-        </p>
-      </div>
     </div>
   );
 }

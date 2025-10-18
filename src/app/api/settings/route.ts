@@ -1,39 +1,32 @@
+import { prisma } from "@/lib/prisma";
 import { NextResponse } from "next/server";
 
-// Since we don't have a Settings model in Prisma, we'll use a simple JSON file approach
-// or return default settings
+export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 export async function GET() {
   try {
-    // Return default settings
-    const settings = {
-      siteName: "Tobakkhuset",
-      siteDescription: "متجر التبغ والنرجيلة",
-      contactEmail: "info@tobakkhuset.com",
-      contactPhone: "+46 123 456 789",
-      address: "Stockholm, Sweden",
-      currency: "kr",
-      taxRate: 25,
-      shippingCost: 50
-    };
-    
+    const settings = await prisma.setting.findMany();
     return NextResponse.json(settings);
   } catch (error) {
+    console.error("Settings error:", error);
     return NextResponse.json({ error: "Failed to fetch settings" }, { status: 500 });
   }
 }
 
-export async function POST(request: Request) {
+export async function PUT(request: Request) {
   try {
-    const settings = await request.json();
+    const body = await request.json();
     
-    // For now, we'll just acknowledge the save
-    // In a real app, you'd save this to a database or file
-    console.log("Settings saved:", settings);
+    // Update setting by key
+    const setting = await prisma.setting.update({
+      where: { key: body.key },
+      data: { value: body.value }
+    });
     
-    return NextResponse.json({ success: true, settings });
+    return NextResponse.json(setting);
   } catch (error) {
-    console.error("Error saving settings:", error);
-    return NextResponse.json({ error: "Failed to save settings" }, { status: 500 });
+    console.error("Error updating setting:", error);
+    return NextResponse.json({ error: "Failed to update setting" }, { status: 500 });
   }
 }

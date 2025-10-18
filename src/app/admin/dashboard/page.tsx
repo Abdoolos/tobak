@@ -42,7 +42,7 @@ export default function DashboardPage() {
         fontSize: "18px",
         color: "#666"
       }}>
-        جاري التحميل...
+        Laster...
       </div>
     );
   }
@@ -64,7 +64,7 @@ export default function DashboardPage() {
         justifyContent: "space-between",
         alignItems: "center"
       }}>
-        <h2 style={{ margin: 0, color: "#333" }}>لوحة تحكم الإدارة</h2>
+        <h2 style={{ margin: 0, color: "#333" }}>Administrasjonspanel</h2>
         <div style={{ display: "flex", gap: "10px" }}>
           <a href="/admin/products" style={{
             padding: "8px 16px",
@@ -74,7 +74,7 @@ export default function DashboardPage() {
             borderRadius: "4px",
             fontSize: "14px"
           }}>
-            المنتجات
+            Produkter
           </a>
           <a href="/" style={{
             padding: "8px 16px",
@@ -84,7 +84,7 @@ export default function DashboardPage() {
             borderRadius: "4px",
             fontSize: "14px"
           }}>
-            عرض الموقع
+            Vis nettsted
           </a>
           <button 
             onClick={() => window.location.href = '/api/auth/signout'}
@@ -98,7 +98,7 @@ export default function DashboardPage() {
               cursor: "pointer"
             }}
           >
-            تسجيل الخروج
+            Logg ut
           </button>
         </div>
       </nav>
@@ -112,8 +112,8 @@ export default function DashboardPage() {
         boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
         textAlign: "center"
       }}>
-        <h1 style={{ margin: "0 0 10px 0", color: "#333" }}>مرحباً بك في لوحة التحكم</h1>
-        <p style={{ color: "#666", margin: 0 }}>إدارة موقع Tobakkhuset</p>
+        <h1 style={{ margin: "0 0 10px 0", color: "#333" }}>Velkommen til kontrollpanelet</h1>
+        <p style={{ color: "#666", margin: 0 }}>Administrasjon av Tobakkhuset</p>
       </div>
 
       {/* Stats Grid */}
@@ -130,7 +130,7 @@ export default function DashboardPage() {
           textAlign: "center",
           boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
         }}>
-          <h3 style={{ margin: "0 0 10px 0", color: "#666", fontSize: "14px" }}>إجمالي المنتجات</h3>
+          <h3 style={{ margin: "0 0 10px 0", color: "#666", fontSize: "14px" }}>Totalt produkter</h3>
           <div style={{ fontSize: "24px", fontWeight: "bold", color: "#007bff" }}>
             {stats.totalProducts}
           </div>
@@ -143,7 +143,7 @@ export default function DashboardPage() {
           textAlign: "center",
           boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
         }}>
-          <h3 style={{ margin: "0 0 10px 0", color: "#666", fontSize: "14px" }}>المنتجات النشطة</h3>
+          <h3 style={{ margin: "0 0 10px 0", color: "#666", fontSize: "14px" }}>Aktive produkter</h3>
           <div style={{ fontSize: "24px", fontWeight: "bold", color: "#28a745" }}>
             {stats.activeProducts}
           </div>
@@ -156,7 +156,7 @@ export default function DashboardPage() {
           textAlign: "center",
           boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
         }}>
-          <h3 style={{ margin: "0 0 10px 0", color: "#666", fontSize: "14px" }}>مخزون منخفض</h3>
+          <h3 style={{ margin: "0 0 10px 0", color: "#666", fontSize: "14px" }}>Lavt lager</h3>
           <div style={{ fontSize: "24px", fontWeight: "bold", color: "#dc3545" }}>
             {stats.lowStock}
           </div>
@@ -170,7 +170,7 @@ export default function DashboardPage() {
         borderRadius: "8px",
         boxShadow: "0 2px 4px rgba(0,0,0,0.1)"
       }}>
-        <h2 style={{ marginTop: 0, color: "#333" }}>الإجراءات السريعة</h2>
+        <h2 style={{ marginTop: 0, color: "#333" }}>Hurtighandlinger</h2>
         <div style={{ display: "flex", gap: "15px", flexWrap: "wrap" }}>
           <a href="/admin/products" style={{
             display: "inline-block",
@@ -181,7 +181,7 @@ export default function DashboardPage() {
             borderRadius: "6px",
             fontWeight: "500"
           }}>
-            📦 إدارة المنتجات
+            📦 Administrer produkter
           </a>
           <a href="/admin/products/new" style={{
             display: "inline-block",
@@ -192,7 +192,7 @@ export default function DashboardPage() {
             borderRadius: "6px",
             fontWeight: "500"
           }}>
-            ➕ إضافة منتج جديد
+            ➕ Legg til nytt produkt
           </a>
           <a href="/admin/settings" style={{
             display: "inline-block",
@@ -203,7 +203,7 @@ export default function DashboardPage() {
             borderRadius: "6px",
             fontWeight: "500"
           }}>
-            ⚙️ الإعدادات
+            ⚙️ Innstillinger
           </a>
         </div>
       </div>

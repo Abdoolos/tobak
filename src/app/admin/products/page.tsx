@@ -31,7 +31,7 @@ export default function AdminProductsPage() {
   }, [session, status, router]);
 
   const deleteProduct = async (id: number, name: string) => {
-    if (!confirm(`هل أنت متأكد من حذف "${name}"؟`)) return;
+    if (!confirm(`Er du sikker på at du vil slette "${name}"?`)) return;
     
     try {
       const res = await fetch(`/api/products/${id}`, {
@@ -40,12 +40,12 @@ export default function AdminProductsPage() {
       
       if (res.ok) {
         setProducts(products.filter((p: any) => p.id !== id));
-        alert("تم حذف المنتج بنجاح");
+        alert("Produktet ble slettet");
       } else {
-        alert("خطأ في حذف المنتج");
+        alert("Feil ved sletting av produkt");
       }
     } catch (error) {
-      alert("خطأ في حذف المنتج");
+      alert("Feil ved sletting av produkt");
     }
   };
 
@@ -59,7 +59,7 @@ export default function AdminProductsPage() {
         fontSize: "18px",
         color: "#666"
       }}>
-        جاري التحميل...
+        Laster...
       </div>
     );
   }
@@ -81,7 +81,7 @@ export default function AdminProductsPage() {
         justifyContent: "space-between",
         alignItems: "center"
       }}>
-        <h2 style={{ margin: 0, color: "#333" }}>إدارة المنتجات</h2>
+        <h2 style={{ margin: 0, color: "#333" }}>Produktadministrasjon</h2>
         <div style={{ display: "flex", gap: "10px" }}>
           <a href="/admin/dashboard" style={{
             padding: "8px 16px",
@@ -91,7 +91,7 @@ export default function AdminProductsPage() {
             borderRadius: "4px",
             fontSize: "14px"
           }}>
-            لوحة التحكم
+            Kontrollpanel
           </a>
           <a href="/admin/products/new" style={{
             padding: "8px 16px",
@@ -101,7 +101,7 @@ export default function AdminProductsPage() {
             borderRadius: "4px",
             fontSize: "14px"
           }}>
-            إضافة منتج
+            Legg til produkt
           </a>
           <button 
             onClick={() => window.location.href = '/api/auth/signout'}
@@ -115,7 +115,7 @@ export default function AdminProductsPage() {
               cursor: "pointer"
             }}
           >
-            تسجيل الخروج
+            Logg ut
           </button>
         </div>
       </nav>
@@ -132,8 +132,8 @@ export default function AdminProductsPage() {
         alignItems: "center"
       }}>
         <div>
-          <h1 style={{ margin: "0 0 5px 0", color: "#333" }}>جميع المنتجات</h1>
-          <p style={{ color: "#666", margin: 0 }}>العدد الإجمالي: {products.length}</p>
+          <h1 style={{ margin: "0 0 5px 0", color: "#333" }}>Alle produkter</h1>
+          <p style={{ color: "#666", margin: 0 }}>Totalt antall: {products.length}</p>
         </div>
         <a href="/admin/products/new" style={{
           padding: "12px 20px",
@@ -143,7 +143,7 @@ export default function AdminProductsPage() {
           borderRadius: "6px",
           fontWeight: "500"
         }}>
-          ➕ إضافة منتج جديد
+          ➕ Legg til nytt produkt
         </a>
       </div>
 
@@ -160,7 +160,7 @@ export default function AdminProductsPage() {
             textAlign: "center", 
             color: "#666" 
           }}>
-            <p style={{ fontSize: "18px", marginBottom: "20px" }}>لا توجد منتجات حالياً</p>
+            <p style={{ fontSize: "18px", marginBottom: "20px" }}>Ingen produkter for øyeblikket</p>
             <a href="/admin/products/new" style={{
               padding: "12px 24px",
               background: "#007bff",
@@ -169,7 +169,7 @@ export default function AdminProductsPage() {
               borderRadius: "6px",
               fontWeight: "500"
             }}>
-              إضافة أول منتج
+              Legg til første produkt
             </a>
           </div>
         ) : (
@@ -177,12 +177,12 @@ export default function AdminProductsPage() {
             <table style={{ width: "100%", borderCollapse: "collapse" }}>
               <thead>
                 <tr style={{ background: "#f8f9fa" }}>
-                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>الصورة</th>
-                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>اسم المنتج</th>
-                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>السعر</th>
-                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>المخزون</th>
-                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>الحالة</th>
-                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>الإجراءات</th>
+                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>Bilde</th>
+                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>Produktnavn</th>
+                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>Pris</th>
+                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>Lager</th>
+                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>Status</th>
+                  <th style={{ padding: "15px", textAlign: "right", borderBottom: "1px solid #e0e0e0" }}>Handlinger</th>
                 </tr>
               </thead>
               <tbody>
@@ -212,7 +212,7 @@ export default function AdminProductsPage() {
                           fontSize: "10px",
                           color: "#666"
                         }}>
-                          لا توجد صورة
+                          Ingen bilde
                         </div>
                       )}
                     </td>
@@ -243,7 +243,7 @@ export default function AdminProductsPage() {
                         color: product.active ? "#28a745" : "#dc3545",
                         fontWeight: "bold"
                       }}>
-                        {product.active ? "نشط" : "غير نشط"}
+                        {product.active ? "Aktiv" : "Inaktiv"}
                       </span>
                     </td>
                     <td style={{ padding: "15px" }}>
@@ -260,7 +260,7 @@ export default function AdminProductsPage() {
                             cursor: "pointer"
                           }}
                         >
-                          حذف
+                          Slett
                         </button>
                       </div>
                     </td>

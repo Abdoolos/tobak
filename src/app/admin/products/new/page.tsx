@@ -38,14 +38,14 @@ export default function NewProductPage() {
       });
 
       if (res.ok) {
-        alert("تم إضافة المنتج بنجاح!");
+        alert("Produktet ble lagt til!");
         router.push("/admin/products");
       } else {
-        alert("خطأ في إضافة المنتج");
+        alert("Feil ved å legge til produkt");
         setLoading(false);
       }
     } catch (error) {
-      alert("خطأ في إضافة المنتج");
+      alert("Feil ved å legge til produkt");
       setLoading(false);
     }
   };
@@ -60,7 +60,7 @@ export default function NewProductPage() {
         fontSize: "18px",
         color: "#666"
       }}>
-        جاري التحميل...
+        Laster...
       </div>
     );
   }
@@ -82,7 +82,7 @@ export default function NewProductPage() {
         justifyContent: "space-between",
         alignItems: "center"
       }}>
-        <h2 style={{ margin: 0, color: "#333" }}>إضافة منتج جديد</h2>
+        <h2 style={{ margin: 0, color: "#333" }}>Legg til nytt produkt</h2>
         <div style={{ display: "flex", gap: "10px" }}>
           <a href="/admin/dashboard" style={{
             padding: "8px 16px",
@@ -92,7 +92,7 @@ export default function NewProductPage() {
             borderRadius: "4px",
             fontSize: "14px"
           }}>
-            لوحة التحكم
+            Kontrollpanel
           </a>
           <a href="/admin/products" style={{
             padding: "8px 16px",
@@ -102,7 +102,7 @@ export default function NewProductPage() {
             borderRadius: "4px",
             fontSize: "14px"
           }}>
-            المنتجات
+            Produkter
           </a>
           <button 
             onClick={() => window.location.href = '/api/auth/signout'}
@@ -116,7 +116,7 @@ export default function NewProductPage() {
               cursor: "pointer"
             }}
           >
-            تسجيل الخروج
+            Logg ut
           </button>
         </div>
       </nav>
@@ -130,8 +130,8 @@ export default function NewProductPage() {
         boxShadow: "0 2px 4px rgba(0,0,0,0.1)",
         textAlign: "center"
       }}>
-        <h1 style={{ margin: "0 0 10px 0", color: "#333" }}>إضافة منتج جديد</h1>
-        <p style={{ color: "#666", margin: 0 }}>املأ البيانات أدناه لإضافة منتج جديد إلى المتجر</p>
+        <h1 style={{ margin: "0 0 10px 0", color: "#333" }}>Legg til nytt produkt</h1>
+        <p style={{ color: "#666", margin: 0 }}>Fyll ut dataene nedenfor for å legge til et nytt produkt i butikken</p>
       </div>
 
       {/* Form */}
@@ -144,13 +144,13 @@ export default function NewProductPage() {
         <div style={{ display: "grid", gap: "20px" }}>
           <div>
             <label style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#333" }}>
-              اسم المنتج *
+              Produktnavn *
             </label>
             <input
               type="text"
               value={form.name}
               onChange={e => setForm({ ...form, name: e.target.value })}
-              placeholder="أدخل اسم المنتج"
+              placeholder="Skriv inn produktnavn"
               required
               style={{
                 width: "100%",
@@ -166,7 +166,7 @@ export default function NewProductPage() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "20px" }}>
             <div>
               <label style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#333" }}>
-                السعر (NOK) *
+                Pris (NOK) *
               </label>
               <input
                 type="number"
@@ -188,7 +188,7 @@ export default function NewProductPage() {
 
             <div>
               <label style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#333" }}>
-                الفئة
+                Kategori
               </label>
               <select
                 value={form.category}
@@ -212,12 +212,12 @@ export default function NewProductPage() {
 
           <div>
             <label style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#333" }}>
-              الوصف
+              Beskrivelse
             </label>
             <textarea
               value={form.description}
               onChange={e => setForm({ ...form, description: e.target.value })}
-              placeholder="وصف المنتج..."
+              placeholder="Produktbeskrivelse..."
               rows={4}
               style={{
                 width: "100%",
@@ -233,7 +233,7 @@ export default function NewProductPage() {
 
           <div>
             <label style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#333" }}>
-              رابط الصورة
+              Bildelenke
             </label>
             <input
               type="url"
@@ -253,7 +253,7 @@ export default function NewProductPage() {
               <div style={{ marginTop: "10px" }}>
                 <img 
                   src={form.image} 
-                  alt="معاينة الصورة"
+                  alt="Forhåndsvisning av bilde"
                   style={{ 
                     width: "100px", 
                     height: "100px", 
@@ -271,13 +271,13 @@ export default function NewProductPage() {
 
           <div>
             <label style={{ display: "block", marginBottom: "8px", fontWeight: "500", color: "#333" }}>
-              المخزون *
+              Lager *
             </label>
             <input
               type="number"
               value={form.stock}
               onChange={e => setForm({ ...form, stock: +e.target.value })}
-              placeholder="عدد القطع المتوفرة"
+              placeholder="Antall tilgjengelige enheter"
               required
               style={{
                 width: "100%",
@@ -305,10 +305,10 @@ export default function NewProductPage() {
                 onChange={e => setForm({ ...form, active: e.target.checked })}
                 style={{ width: "auto" }}
               />
-              المنتج نشط
+              Produktet er aktivt
             </label>
             <small style={{ color: "#666", fontSize: "12px" }}>
-              المنتجات النشطة فقط ستظهر في المتجر
+              Kun aktive produkter vises i butikken
             </small>
           </div>
         </div>
@@ -335,7 +335,7 @@ export default function NewProductPage() {
               transition: "background 0.2s"
             }}
           >
-            {loading ? "جاري الإضافة..." : "حفظ المنتج"}
+            {loading ? "Legger til..." : "Lagre produkt"}
           </button>
           
           <a 
@@ -350,7 +350,7 @@ export default function NewProductPage() {
               fontWeight: "500"
             }}
           >
-            إلغاء
+            Avbryt
           </a>
         </div>
       </form>
